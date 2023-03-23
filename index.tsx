@@ -1,5 +1,48 @@
 declare const BuzzBoosterJavaScriptInterface: any;
 
+export class BuzzBooster {
+    static setUser(user: User) {
+        if (user.optInMarketing != null) {
+            user.properties["opt_in_marketing"] = user.optInMarketing
+        }
+    
+        let string = JSON.stringify({ 
+            "method": "setUser",
+            "parameters": {
+                "user_id": user.userId,
+                "properties": user.properties
+            }
+        })
+        BuzzBoosterJavaScriptInterface.postMessage(string)
+    }
+
+    static showCampaign() {
+        let string = JSON.stringify({ 
+            "method": "showCampaign",
+        })
+        BuzzBoosterJavaScriptInterface.postMessage(string)
+    }
+
+    static showInAppMessage() {
+        let string = JSON.stringify({ 
+            "method": "showInAppMessage",
+        })
+        BuzzBoosterJavaScriptInterface.postMessage(string)
+    }
+
+    static sendEvent(eventName: string, properties: Map<string, string>) {
+        let string = JSON.stringify({ 
+            "method": "sendEvent",
+            "parameters": {
+                "event_name": eventName,
+                "event_values": properties
+            }
+        })
+        BuzzBoosterJavaScriptInterface.postMessage(string)
+    }
+    
+}
+
 export class User {
     userId!: string
     optInMarketing!: boolean | null
@@ -36,45 +79,4 @@ export class UserBuilder {
     build(): User {
       return new User(this)
     }
-}
-
-export function setUser(user: User) {
-    if (user.optInMarketing != null) {
-        user.properties["opt_in_marketing"] = user.optInMarketing
-    }
-
-    let string = JSON.stringify({ 
-        "method": "setUser",
-        "parameters": {
-            "user_id": user.userId,
-            "properties": user.properties
-        }
-    })
-    BuzzBoosterJavaScriptInterface.postMessage(string)
-}
-
-
-export function showCampaign() {
-    let string = JSON.stringify({ 
-        "method": "showCampaign",
-    })
-    BuzzBoosterJavaScriptInterface.postMessage(string)
-}
-
-export function showInAppMessage() {
-    let string = JSON.stringify({ 
-        "method": "showInAppMessage",
-    })
-    BuzzBoosterJavaScriptInterface.postMessage(string)
-}
-
-export function sendEvent(eventName: string, properties: Map<string, string>) {
-    let string = JSON.stringify({ 
-        "method": "sendEvent",
-        "parameters": {
-            "event_name": eventName,
-            "event_values": properties
-        }
-    })
-    BuzzBoosterJavaScriptInterface.postMessage(string)
 }
