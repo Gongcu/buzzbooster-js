@@ -1,0 +1,31 @@
+{
+  "name": "buzzbooster-js",
+  "version": "0.0.1",
+  "description": "BuzzBooster JavaScript Interface SDK",
+  "main": "index.js",
+  "source": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gongcu/buzzbooster-js.git"
+  },
+  "author": "Gongcu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gongcu/buzzbooster-js/issues"
+  },
+  "homepage": "https://github.com/Gongcu/buzzbooster-js#readme",
+  "browserslist": [
+    "chrome 64",
+    "edge 79",
+    "firefox 67",
+    "opera 51",
+    "safari 12",
+    "ChromeAndroid 18"
+  ],
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}
