@@ -3,9 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserBuilder = exports.User = exports.BuzzBooster = void 0;
 class BuzzBooster {
     static setUser(user) {
-        if (user.optInMarketing != null) {
-            user.properties["opt_in_marketing"] = user.optInMarketing;
-        }
         let string = JSON.stringify({
             "method": "setUser",
             "parameters": {
@@ -42,7 +39,6 @@ exports.BuzzBooster = BuzzBooster;
 class User {
     constructor(builder) {
         this.userId = builder.userId;
-        this.optInMarketing = builder.optInMarketing;
         this.properties = builder.properties;
     }
 }
@@ -50,15 +46,14 @@ exports.User = User;
 class UserBuilder {
     constructor(userId) {
         this.userId = userId;
-        this.optInMarketing = null;
         this.properties = new Map();
     }
     setOptInMarketing(optInMarketing) {
-        this.optInMarketing = optInMarketing;
+        this.properties["opt_in_marketing"] = optInMarketing.toString();
         return this;
     }
     addProperty(key, value) {
-        this.properties[key] = value;
+        this.properties[key] = value.toString();
         return this;
     }
     build() {
