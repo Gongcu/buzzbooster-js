@@ -26,18 +26,24 @@ export class BuzzBooster {
         BuzzBoosterJavaScriptInterface.postMessage(string)
     }
 
-    static sendEvent(eventName: string, properties: Map<string, number | boolean | string>) {
+    static sendEvent(name: string, values: Map<string, number | boolean | string>, option: SendEventOption) {
         let string = JSON.stringify({ 
             "method": "sendEvent",
             "parameters": {
-                "event_name": eventName,
-                "event_values": properties
+                "event_name": name,
+                "event_values": values,
+                "send_option": option
             }
         })
         BuzzBoosterJavaScriptInterface.postMessage(string)
     }
-    
 }
+
+export const SendEventOption = {
+    DEFAULT: "default",
+    IMMEDIATE: "immediate",
+} as const;
+type SendEventOption = typeof SendEventOption[keyof typeof SendEventOption];
 
 export class User {
     userId!: string
