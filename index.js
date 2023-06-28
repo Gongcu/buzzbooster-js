@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserBuilder = exports.User = exports.SendEventOption = exports.BuzzBooster = void 0;
+exports.UserBuilder = exports.User = exports.BuzzBooster = void 0;
 class BuzzBooster {
     static setUser(user) {
         let string = JSON.stringify({
@@ -12,9 +12,9 @@ class BuzzBooster {
         });
         BuzzBoosterJavaScriptInterface.postMessage(string);
     }
-    static showCampaign() {
+    static showHome() {
         let string = JSON.stringify({
-            "method": "showCampaign",
+            "method": "showHome",
         });
         BuzzBoosterJavaScriptInterface.postMessage(string);
     }
@@ -24,23 +24,18 @@ class BuzzBooster {
         });
         BuzzBoosterJavaScriptInterface.postMessage(string);
     }
-    static sendEvent(name, values, option) {
+    static sendEvent(name, values) {
         let string = JSON.stringify({
             "method": "sendEvent",
             "parameters": {
                 "event_name": name,
                 "event_values": values,
-                "send_option": option
             }
         });
         BuzzBoosterJavaScriptInterface.postMessage(string);
     }
 }
 exports.BuzzBooster = BuzzBooster;
-exports.SendEventOption = {
-    DEFAULT: "default",
-    IMMEDIATE: "immediate",
-};
 class User {
     constructor(builder) {
         this.userId = builder.userId;
