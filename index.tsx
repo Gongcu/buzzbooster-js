@@ -26,6 +26,13 @@ export class BuzzBooster {
         BuzzBoosterJavaScriptInterface.postMessage(string)
     }
 
+    static showNaverPayExchange() {
+        let string = JSON.stringify({
+            "method": "showNaverPayExchange",
+        })
+        BuzzBoosterJavaScriptInterface.postMessage(string)
+    }
+
     static sendEvent(name: string, values: Map<string, number | boolean | string>) {
         let string = JSON.stringify({
             "method": "sendEvent",
