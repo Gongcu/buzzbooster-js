@@ -1,9 +1,10 @@
 {
   "name": "buzzbooster-js",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "BuzzBooster JavaScript Interface SDK",
   "main": "index.js",
   "source": "index",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json",
@@ -21,7 +22,7 @@
   "exports": {
     ".": {
       "types": "./build/types/index.d.ts",
-      "require": "./build/cjs/index.js",
+      "require": "./build/cjs/index.cjs",
       "import": "./build/esm/index.js",
       "default": "./build/esm/index.js"
     }
