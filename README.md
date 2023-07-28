@@ -1,10 +1,10 @@
 # buzzbooster-js
-BuzzBooster Javascript Interface SDK
+BuzzBooster Javascript Interface SDK.
 
 # Getting Start
 ```
 npm install --save
-npx tsc --build
+npm run compile
 ```
 
 # Deployment
