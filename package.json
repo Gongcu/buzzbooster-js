@@ -1,6 +1,6 @@
 {
   "name": "buzzbooster-js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "BuzzBooster JavaScript Interface SDK",
   "main": "index.js",
   "source": "index",
